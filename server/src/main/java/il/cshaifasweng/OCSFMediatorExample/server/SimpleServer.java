@@ -18,10 +18,6 @@ public class SimpleServer extends AbstractServer {
 		
 	}
 
-	/////////////////////////////
-	/////////////////////////////
-	/////////////////////////////
-
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		Message message = (Message) msg;
