@@ -59,12 +59,12 @@ public class SimpleServer extends AbstractServer {
 				//add code here to send submitters IDs to client
 				///////////////////////////////////////
 				//what is the message format?? I just suppose that it is:
-				//FORMAT:"send Submitters IDs 123456789 012345678"
+				//FORMAT:"send Submitters IDs 123456789, 987654321"
 				///////////////////////////////////////
 
 				String ids = request.substring(20);
 				String id1 = ids.substring(0,9);
-				String id2 = ids.substring(11,19);
+				String id2 = ids.substring(12,20);
 				ids = ""+id1+ ", "+id2;
 				message.setMessage(ids);
 				client.sendToClient(message);
@@ -74,13 +74,15 @@ public class SimpleServer extends AbstractServer {
 				//add code here to send submitters names to client
 				///////////////////////////////////////
 				//what is the message format?? I just suppose that it is:
-				//FORMAT:"send Submitters Alice Bob"
+				//FORMAT:"send Submitters Alice, Bob"
 				///////////////////////////////////////
 
 				String[] myArray = request.split(" ", 4);
 
 				String name1 = myArray[2];
 				String name2 =myArray[3];
+				String[] myArray1= name1.split(",");
+				name1 =myArray1[0];
 				String names = ""+name1+ ", "+name2;
 				message.setMessage(names);
 				client.sendToClient(message);
